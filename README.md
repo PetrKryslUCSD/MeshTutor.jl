@@ -2,6 +2,8 @@
 
 Bundle of tutorials for MeshKeeper and its dependencies (all the way down to MeshCore.jl)
 
+![Sample mesh](trunc_cyl_shell_0.png)
+
 ## Installation
 
 Clone the package to your working directory:
