@@ -12,7 +12,6 @@ MeshMaker = "eff96cbd-3442-458f-9fe2-6cad589fe5e1"
 MeshPorter = "ba998677-2e4b-4950-b481-8cc4322dc218"
 
 [compat]
-StaticArrays = "0.12"
 julia = "1.4"
 Literate = "2.4"
 MeshCore = "0.6"                                                                   
