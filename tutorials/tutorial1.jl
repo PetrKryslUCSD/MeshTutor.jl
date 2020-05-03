@@ -7,6 +7,12 @@
 #    -  How to inspect the data stored in the mesh
 #    -  How to visualize the mesh
 
+# The tutorial comes with a file containing representation of the mesh for
+# visualization in the [Paraview](https://www.paraview.org/) format. One can
+# visualize this mesh by loading the file `mymesh.vtu` with `paraview.exe`.
+# One of the aims of this tutorial is to work with this mesh: the generated,
+# and eventually store it in the visualization format.
+
 # We will generate the tetrahedral mesh inside a rectangular block.
 # The block will have the dimensions shown below:
 a, b, c = 2.0, 2.5, 3.0
@@ -68,7 +74,7 @@ end
 # When you run this tutorial  you should get the same file. So a quick way of
 # checking that things are working as expected is to  visualize what you
 # should get by loading the file `mymesh.vtu` with `paraview.exe`, and only
-# then running the export and looking at the results again.
+# then running the export in the two lines below and looking at the results again.
 import MeshPorter: vtkwrite
 vtkwrite("mymesh", conn)
 
