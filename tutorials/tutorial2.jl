@@ -20,8 +20,8 @@ na, nb = 2, 3
 import MeshMaker: T3block
 conn = T3block(a, b, na, nb, :b)
 
-# The variable `conn` is an incidence relation. This will become the base
-# relation of the mesh.
+# The variable `conn` is an incidence relation. This incidence relation will
+# become the base relation of the mesh.
 import MeshKeeper: Mesh, insert!
 m = Mesh()
 insert!(m, conn)
@@ -35,9 +35,13 @@ import MeshKeeper: nspacedims
 # `"Unit-square-mesh.mesh"` is the directory of the bundle of the mesh files, so to speak.
 import MeshKeeper: save
 save(m, "Unit-square-mesh")
+# Note the trio of files `"Unit-square-mesh.mesh"` (mesh  "directory"), and
+# `"Unit-square-mesh-conn.dat"` (connectivity) and
+# `"Unit-square-mesh-xyz.dat"` (locations of vertices).
+readdir(".")
 
-# We will now load the mesh into another mesh that we create specifically for
-# the purpose of comparing the two meshes.
+# We will now load the mesh we saved just now into another mesh that we create
+# specifically for the purpose of comparing the two meshes.
 import MeshKeeper: load
 m2 = load(Mesh(), "Unit-square-mesh")
 
@@ -50,9 +54,12 @@ import MeshKeeper: baseincrel
 # Now  we compare the number of the triangular elements in those two meshes:
 @show nshapes(baseincrel(m).left) == nshapes(baseincrel(m2).left)
 
-# Are the shape descriptors the same?
+# What is the name of the shape descriptor if the base incidence relation of
+# the mesh?
 import MeshCore: shapedesc
 @show shapedesc(baseincrel(m).left).name
+
+# Are the shape descriptors the same for the two meshes?
 @show shapedesc(baseincrel(m).left) == shapedesc(baseincrel(m2).left)
 
 
