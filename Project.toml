@@ -1,0 +1,11 @@
+name = "MeshTutor"
+uuid = "086c267d-82a5-4401-8669-f0e7151ff578"
+authors = ["Petr Krysl <pkrysl@ucsd.edu>"]
+version = "0.1.0"
+
+[deps]
+MeshCore = "43a99bba-f459-4d0e-8139-f3df11d847d4"
+MeshFinder = "94afc05e-a560-4acd-8e11-a7bb2c092f45"
+MeshKeeper = "484b717a-98b9-4b0c-89dc-fb7d7e739263"
+MeshMaker = "eff96cbd-3442-458f-9fe2-6cad589fe5e1"
+MeshPorter = "ba998677-2e4b-4950-b481-8cc4322dc218"
