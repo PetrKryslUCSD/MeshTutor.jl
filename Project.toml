@@ -4,8 +4,19 @@ authors = ["Petr Krysl <pkrysl@ucsd.edu>"]
 version = "0.1.0"
 
 [deps]
+Literate = "98b081ad-f1c9-55d3-8b20-4c87d4299306"
 MeshCore = "43a99bba-f459-4d0e-8139-f3df11d847d4"
 MeshFinder = "94afc05e-a560-4acd-8e11-a7bb2c092f45"
 MeshKeeper = "484b717a-98b9-4b0c-89dc-fb7d7e739263"
 MeshMaker = "eff96cbd-3442-458f-9fe2-6cad589fe5e1"
 MeshPorter = "ba998677-2e4b-4950-b481-8cc4322dc218"
+
+[compat]
+StaticArrays = "0.12"
+julia = "1.4"
+Literate = "2.4"
+MeshCore = "0.6"                                                                   
+MeshFinder = "0.1"
+MeshKeeper = "0.3"                                                                 
+MeshMaker = "0.2"                                                                  
+MeshPorter = "0.2"  
