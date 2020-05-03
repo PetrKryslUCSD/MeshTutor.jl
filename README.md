@@ -8,8 +8,8 @@ Clone the package to your working directory:
 ```
 git clone https://github.com/PetrKryslUCSD/MeshTutor.jl.git
 ```
-Change your working directory to `MeshTutor`.
-Run the following:
+Change your working directory to `MeshTutor`. Start Julia and run
+the following:
 ```
 using Pkg; Pkg.activate("."); Pkg.instantiate()
 ```
