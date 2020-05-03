@@ -14,8 +14,9 @@ Run the following:
 using Pkg; Pkg.activate("."); Pkg.instantiate()
 ```
 
-add https://github.com/PetrKryslUCSD/MeshCore.jl.git
-add https://github.com/PetrKryslUCSD/MeshPorter.jl.git
-add https://github.com/PetrKryslUCSD/MeshMaker.jl.git
-add https://github.com/PetrKryslUCSD/MeshKeeper.jl.git    
-
+Note that it is possible to generate a Markdown version of the tutorials, which render nicely the code and the accompanying text by running the file make.jl as
+```
+cd("tutorials")
+include("make.jl")
+```
+For instance Google Chrome is capable of displaying such markdown files quite well.
