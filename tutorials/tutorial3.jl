@@ -41,24 +41,26 @@ vtkwrite("trunc_cyl_shell_0-elements", baseincrel(mesh))
 
 # Now we will locate some vertices. In particular, let us say we wish to
 # select the vertices  in one of the cross-sections of the hollow cylinder,
-# one at Z = 0.5. We shall use the method of a bounding box:  all vertices inside the bounding box will be selected. 
+# one at $$Z = 0.5$$. We shall use the method of a bounding box:  all vertices inside the bounding box will be selected. 
 # The bounding box will initially start as totally flat (zero volume), and in
-# order to capture the vertices which are not *precisely* at Z = 0.5 (given
+# order to capture the vertices which are not *precisely* at $$Z = 0.5$$ (given
 # the vagaries of floating-point numbers), we shall inflate the box to all
 # sides by a small amount.
-using MeshFinder: boundingbox
+using MeshFinder: boundingbox, inflatebox!
 box = boundingbox([-Inf -Inf 0.5; Inf Inf 0.5])
+box = inflatebox!(box, 0.001)
 
-# The function `vselect` will create an incidents relation that consists of the selected vertices.
+# The function `vselect` will create an incidence relation that consists of the selected vertices.
 using MeshKeeper: vselect
-selectedv = vselect(mesh, box = box, inflate = 0.001)
+selectedv = vselect(mesh, box = box)
 
 # This is how many vertices  have been found in that cross-section:
 using MeshCore: nshapes
 @show nshapes(selectedv.left)
 
 # The incidence relation consisting of the selected vertices may be exported for viewing
-# with the "Paraview" visualization program.
+# with the "Paraview" visualization program. Select to visualize this mesh as
+# "Points", and select the size of the points as 8.
 using MeshPorter: vtkwrite
 vtkwrite("trunc_cyl_shell_0-selected-vertices", selectedv)
 
@@ -68,5 +70,7 @@ vtkwrite("trunc_cyl_shell_0-selected-vertices", selectedv)
 # glyphs in Paraview.
 @async run(`paraview trunc_cyl_shell_0-selected-vertices.vtu`)
 
-
+# It is also possible to start `paraview` and then manually load both
+# files, `"trunc_cyl_shell_0-elements.vtu"` and
+# `"trunc_cyl_shell_0-selected-vertices.vtu"` into the same visualization.
 
