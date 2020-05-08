@@ -1,0 +1,10 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+            "index_exclude_patterns": [".dat", ".vtu", ".nas"],
+            "index_include_patterns": ["*.jl", "*.md"]
+		}
+	]
+}
