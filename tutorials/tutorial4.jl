@@ -2,10 +2,9 @@
 
 # In this tutorial, we will learn
 # 
-#    -  How to import an incidence relation from a file.
-#    -  How to create a mesh from this incidence relation.
-#    -  How to print the summary of the mesh.
-#    -  How to export mesh for visualization.
+#    -  How to extract the boundary of the mesh.
+#    -  How to understand the summary of the mesh.
+#    -  How to export individual incidence relations for visualization.
 
 # As in the previous tutorials, we import a NASTRAN mesh file.
 # This file stores a tetrahedral mesh of a hollow cylinder.
