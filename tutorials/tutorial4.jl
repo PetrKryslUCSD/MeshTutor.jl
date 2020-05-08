@@ -44,15 +44,15 @@ println(summary(bir))
 # We can see that the boundary consists of 752 triangular facets. In order to
 # visualize the boundary we will export it as a VTK file. 
 using MeshKeeper: baseincrel
-using MeshCore: skeleton
 using MeshPorter: vtkwrite
 
 # We shall also produce a file with all the  vertices so that we can visualize
 # the vertices and the boundary in one plot. In order to get an incidence
 # relation with the vertices, which is of code `(0, 0)`, we will use the
-# skeleton method twice on the original tetrahedral mesh.
+# `vertices` function.
+using MeshKeeper: vertices
 
-vtkwrite("trunc_cyl_shell_0-vertices", skeleton(skeleton(baseincrel(mesh))))
+vtkwrite("trunc_cyl_shell_0-vertices", vertices(baseincrel(mesh)))
 
 # And then we also export the triangular boundary facets.
 vtkwrite("trunc_cyl_shell_0-facets", bir)
