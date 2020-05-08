@@ -69,23 +69,23 @@ uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
 
 [[MeshCore]]
 deps = ["StaticArrays", "Test"]
-git-tree-sha1 = "2ada52047a1ed489f4861d58e07695c39fe1e2ce"
+git-tree-sha1 = "2e7850b1248e694354c6b08e7c807154e2d9bf88"
 repo-rev = "master"
 repo-url = "https://github.com/PetrKryslUCSD/MeshCore.jl.git"
 uuid = "43a99bba-f459-4d0e-8139-f3df11d847d4"
-version = "0.6.2"
+version = "0.7.0"
 
 [[MeshFinder]]
 deps = ["LinearAlgebra", "MeshCore", "StaticArrays", "Statistics", "Test"]
-git-tree-sha1 = "a74e110075af4f17b932978f63a2879feffd007c"
+git-tree-sha1 = "1f3d8f658afd698c42877352d24ba833560a1516"
 repo-rev = "master"
 repo-url = "https://github.com/PetrKryslUCSD/MeshFinder.jl.git"
 uuid = "94afc05e-a560-4acd-8e11-a7bb2c092f45"
-version = "0.1.0"
+version = "0.2.0"
 
 [[MeshKeeper]]
 deps = ["MeshCore", "MeshFinder", "MeshMaker", "MeshPorter", "StaticArrays", "Test"]
-git-tree-sha1 = "ecbf04a5cb277c9d8e0f37d69ae9235191601991"
+git-tree-sha1 = "9e71617747bda7958a2c4e5bde724356463024b1"
 repo-rev = "master"
 repo-url = "https://github.com/PetrKryslUCSD/MeshKeeper.jl.git"
 uuid = "484b717a-98b9-4b0c-89dc-fb7d7e739263"
@@ -93,28 +93,28 @@ version = "0.3.0"
 
 [[MeshMaker]]
 deps = ["DelimitedFiles", "LinearAlgebra", "MeshCore", "MeshPorter", "StaticArrays", "Test", "WriteVTK"]
-git-tree-sha1 = "29b27664708a71677883266b0f3a00fb3a47e3d3"
+git-tree-sha1 = "195e1650efaae598a35fedeefb3908524326408d"
 repo-rev = "master"
 repo-url = "https://github.com/PetrKryslUCSD/MeshMaker.jl.git"
 uuid = "eff96cbd-3442-458f-9fe2-6cad589fe5e1"
-version = "0.2.1"
+version = "0.3.0"
 
 [[MeshPorter]]
 deps = ["DelimitedFiles", "LinearAlgebra", "MeshCore", "StaticArrays", "Test", "WriteVTK"]
-git-tree-sha1 = "c44871b9060a51431b3aeef8c713206eed3b5224"
+git-tree-sha1 = "e51d0a8a66db59822ecbc3ee82a35b13b65dc7ad"
 repo-rev = "master"
 repo-url = "https://github.com/PetrKryslUCSD/MeshPorter.jl.git"
 uuid = "ba998677-2e4b-4950-b481-8cc4322dc218"
-version = "0.2.2"
+version = "0.3.0"
 
 [[Mmap]]
 uuid = "a63ad114-7e13-5084-954f-fe012c677804"
 
 [[Parsers]]
 deps = ["Dates", "Test"]
-git-tree-sha1 = "f8f5d2d4b4b07342e5811d2b6428e45524e241df"
+git-tree-sha1 = "72c3451932513427caffbd8bab15643ad693804b"
 uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
-version = "1.0.2"
+version = "1.0.3"
 
 [[Pkg]]
 deps = ["Dates", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "REPL", "Random", "SHA", "UUIDs"]
