@@ -1,6 +1,6 @@
 # MeshTutor.jl
 
-Bundle of tutorials for MeshKeeper and its dependencies (all the way down to MeshCore.jl)
+Bundle of tutorials for `MeshKeeper` and its dependencies (`MeshFinder`, `MeshMaker`, `MeshPorter`, all the way down to `MeshCore`).
 
 ![Sample mesh](trunc_cyl_shell_0.png)
 
