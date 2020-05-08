@@ -69,11 +69,11 @@ uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
 
 [[MeshCore]]
 deps = ["StaticArrays", "Test"]
-git-tree-sha1 = "2e7850b1248e694354c6b08e7c807154e2d9bf88"
+git-tree-sha1 = "3d8034c3bb320e3929b4d2819decd197b8b27c00"
 repo-rev = "master"
 repo-url = "https://github.com/PetrKryslUCSD/MeshCore.jl.git"
 uuid = "43a99bba-f459-4d0e-8139-f3df11d847d4"
-version = "0.7.0"
+version = "0.7.1"
 
 [[MeshFinder]]
 deps = ["LinearAlgebra", "MeshCore", "StaticArrays", "Statistics", "Test"]
@@ -85,7 +85,7 @@ version = "0.2.0"
 
 [[MeshKeeper]]
 deps = ["MeshCore", "MeshFinder", "MeshMaker", "MeshPorter", "StaticArrays", "Test"]
-git-tree-sha1 = "7c652abdb66fbae3ed325faafe279a1f177330c8"
+git-tree-sha1 = "bd21267cf4f480d611baa5fe7568cf6f8c779689"
 repo-rev = "master"
 repo-url = "https://github.com/PetrKryslUCSD/MeshKeeper.jl.git"
 uuid = "484b717a-98b9-4b0c-89dc-fb7d7e739263"
