@@ -34,20 +34,20 @@ println(summary(mesh))
 # are 996 T4 tetrahedral elements, 376 vertices. The second  incidence
 # relation stored in the mesh (`(2, 0)`) is the skeleton of the tetrahedral
 # mesh, i. e. collection of the faces of the tetrahedra. The vertices store as
-# attribute the locations. The triangular faces of the skeleton also store
-# and attribute, a Boolean flag that indicates whether or not the triangle is
+# attribute their locations. The triangular faces of the skeleton also store
+# an attribute, a Boolean flag that indicates whether or not the triangle is
 # part of the boundary.
 
 # We can access this information also through the boundary incidence relation computed above:
 println(summary(bir))
 
 # We can see that the boundary consists of 752 triangular facets. In order to
-# visualize the boundary we will exported as a VTK file. 
+# visualize the boundary we will export it as a VTK file. 
 using MeshKeeper: baseincrel
 using MeshCore: skeleton
 using MeshPorter: vtkwrite
 
-# We shall produce also a file with all the  vertices so that we can visualize
+# We shall also produce a file with all the  vertices so that we can visualize
 # the vertices and the boundary in one plot. In order to get an incidence
 # relation with the vertices, which is of code `(0, 0)`, we will use the
 # skeleton method twice on the original tetrahedral mesh.
