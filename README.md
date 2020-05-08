@@ -10,6 +10,9 @@ Clone the package to your working directory:
 ```
 git clone https://github.com/PetrKryslUCSD/MeshTutor.jl.git
 ```
+
+## Usage
+
 Change your working directory to `MeshTutor`. Start Julia and run
 the following:
 ```
@@ -22,3 +25,9 @@ cd("tutorials")
 include("make.jl")
 ```
 For instance Google Chrome is capable of displaying such markdown files quite well.
+
+In general the tutorials require the folder `MeshTutor.jl/tutorials` to be the working directory since the scripts assume that the input files will be found in the current directory. So to run a tutorial, do
+```
+cd("tutorials")
+```
+open the tutorial file and execute it either in its entirety or line by line.
