@@ -2,9 +2,8 @@
 
 # In this tutorial, we will learn
 # 
-#    -  How to extract the boundary of the mesh.
-#    -  How to understand the summary of the mesh.
-#    -  How to export individual incidence relations for visualization.
+#    -  How to access an attribute of an incidence relation.
+#    -  How to find the bounding box of the mesh.
 
 # As in the previous tutorials, we import a NASTRAN mesh file.
 # This file stores a tetrahedral mesh of a hollow cylinder.
@@ -16,41 +15,31 @@ using MeshKeeper: Mesh, insert!
 mesh = Mesh()
 insert!(mesh, connectivities[1]);
 
-
-
-# The summary will look like this:
-# ```
-# Mesh mesh: (3, 0) = (elements, vertices): elements = 996 x T4, vertices = 376 x P1 {geom,};  (2, 0) = skeleton: shapes = 2368 x T3 {isboundary,}, vertices = 376 x P1 {geom,};     
-# ```
-
-# The information states that in the base incidence relation (`(3, 0)`) there
-# are 996 T4 tetrahedral elements, 376 vertices. The second  incidence
-# relation stored in the mesh (`(2, 0)`) is the skeleton of the tetrahedral
-# mesh, i. e. collection of the faces of the tetrahedra. The vertices store as
-# attribute their locations. The triangular faces of the skeleton also store
-# an attribute, a Boolean flag that indicates whether or not the triangle is
-# part of the boundary.
-
-# We can access this information also through the boundary incidence relation computed above:
-println(summary(bir))
-
-# We can see that the boundary consists of 752 triangular facets. In order to
-# visualize the boundary we will export it as a VTK file. 
+# The base incidence relation of the mesh may be retrieved as:
 using MeshKeeper: baseincrel
-using MeshCore: skeleton
-using MeshPorter: vtkwrite
+ir = baseincrel(mesh);
 
-# We shall also produce a file with all the  vertices so that we can visualize
-# the vertices and the boundary in one plot. In order to get an incidence
-# relation with the vertices, which is of code `(0, 0)`, we will use the
-# skeleton method twice on the original tetrahedral mesh.
+# Let us look at a summary  of this incidence relation:
+using MeshKeeper: summary
+println(summary(ir))
 
-vtkwrite("trunc_cyl_shell_0-vertices", skeleton(skeleton(baseincrel(mesh))))
+# We can see that it relates tetrahedral elements with vertices, and the
+# vertices shape collection has an attribute known under the name "geom".
+# We can retrieve this attribute as
+using MeshCore: attribute
+geom = attribute(ir.right, "geom")
 
-# And then we also export the triangular boundary facets.
-vtkwrite("trunc_cyl_shell_0-facets", bir)
+# Accessing the attribute "geom" provides access to the locations of the
+# vertices, and hence to the geometry of the mesh as it consists of
+# isoparametric elements. This is how we can calculate the bounding box of the
+# mesh.
+using MeshFinder: initbox, updatebox!
+using MeshCore: nvals
+box = initbox(geom.co(1))
+for i in 1:nvals(geom.co)
+    updatebox!(box, geom.co(i))
+end
+@show box
 
-# Start "Paraview", load the two files, and
-# select for instance view as "Surface with Edges" with transparency. The result will be a view
-# of the surface of the triangular mesh of the surface and the vertices will be shown as dots.
-@async run(`paraview `)
+# So the vertices of the mesh all have coordinates ``-0.275 \le x  \le  0.275
+# ``, ``-0.275 \le y  \le  0.275 ``, and ``0.0   \le z  \le  0.5``.    
