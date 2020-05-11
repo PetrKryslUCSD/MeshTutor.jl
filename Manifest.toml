@@ -69,7 +69,7 @@ uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
 
 [[MeshCore]]
 deps = ["StaticArrays", "Test"]
-git-tree-sha1 = "43dcc812355c68a3aae71cdf55e7ef85d070fdd2"
+git-tree-sha1 = "cae823c58a91b438ef821b2018669ea87b3e5a8f"
 repo-rev = "master"
 repo-url = "https://github.com/PetrKryslUCSD/MeshCore.jl.git"
 uuid = "43a99bba-f459-4d0e-8139-f3df11d847d4"
