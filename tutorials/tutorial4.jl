@@ -52,7 +52,7 @@ using MeshPorter: vtkwrite
 # `vertices` function.
 using MeshKeeper: vertices
 
-vtkwrite("trunc_cyl_shell_0-vertices", vertices(baseincrel(mesh)))
+vtkwrite("trunc_cyl_shell_0-vertices", vertices(mesh))
 
 # And then we also export the triangular boundary facets.
 vtkwrite("trunc_cyl_shell_0-facets", bir)

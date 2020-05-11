@@ -1,4 +1,4 @@
-# # ?
+# # Accessing attributes and finding the bounding box
 
 # In this tutorial, we will learn
 # 
