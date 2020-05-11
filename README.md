@@ -30,4 +30,7 @@ In general the tutorials require the folder `MeshTutor.jl/tutorials` to be the w
 ```
 cd("tutorials")
 ```
-open the tutorial file and execute it either in its entirety or line by line.
+open the tutorial file and execute it either in its entirety or line by line. 
+
+!!! note
+Please note that the tutorials may conflict. Make sure to start a new Julia for each tutorial you wish to execute.
