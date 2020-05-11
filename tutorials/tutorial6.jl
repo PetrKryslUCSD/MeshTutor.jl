@@ -7,39 +7,28 @@
 
 # As in the previous tutorials, we import a NASTRAN mesh file.
 # This file stores a tetrahedral mesh of a hollow cylinder.
-using MeshPorter: import_NASTRAN
-connectivities = import_NASTRAN("trunc_cyl_shell_0.nas");
+using MeshPorter: import_ABAQUS
+connectivities = import_ABAQUS("block-w-hole.inp");
 
-# The mesh is created as before by inserting the incidence relation.
 using MeshKeeper: Mesh, insert!
 mesh = Mesh()
 insert!(mesh, connectivities[1]);
 
-# The base incidence relation of the mesh may be retrieved as:
+
+using MeshPorter: vtkwrite
 using MeshKeeper: baseincrel
-ir = baseincrel(mesh);
+vtkwrite("block-w-hole", baseincrel(mesh))
 
-# Let us look at a summary  of this incidence relation:
-using MeshKeeper: summary
-println(summary(ir))
+using MeshKeeper: boundary
+bir = boundary(mesh);
+vtkwrite("block-w-hole-boundary", bir)
 
-# We can see that it relates tetrahedral elements with vertices, and the
-# vertices shape collection has an attribute known under the name "geom".
-# We can retrieve this attribute as
-using MeshCore: attribute
-geom = attribute(ir.right, "geom")
+using MeshFinder: connectedv
+vl = connectedv(bir)
 
-# Accessing the attribute "geom" provides access to the locations of the
-# vertices, and hence to the geometry of the mesh as it consists of
-# isoparametric elements. This is how we can calculate the bounding box of the
-# mesh.
-using MeshFinder: initbox, updatebox!
-using MeshCore: nvals
-box = initbox(geom.co(1))
-for i in 1:nvals(geom.co)
-    updatebox!(box, geom.co(i))
-end
-@show box
+using MeshKeeper: vertices
+verts = vertices(mesh)
 
-# So the vertices of the mesh all have coordinates ``-0.275 \le x  \le  0.275
-# ``, ``-0.275 \le y  \le  0.275 ``, and ``0.0   \le z  \le  0.5``.    
+using MeshCore: subset
+vtkwrite("block-w-hole-vertices", subset(verts, vl))
+
