@@ -2,9 +2,33 @@
 	"folders":
 	[
 		{
-			"path": ".",
-            "index_exclude_patterns": [".dat", ".vtu", ".nas"],
-            "index_include_patterns": ["*.jl", "*.md"]
+			"index_exclude_patterns":
+			[
+				".dat",
+				".vtu",
+				".nas"
+			],
+			"index_include_patterns":
+			[
+				"*.jl",
+				"*.md"
+			],
+			"path": "."
+		},
+		{
+			"path": "C:\\Users\\PKrysl\\Documents\\work\\MeshCore.jl"
+		},
+		{
+			"path": "C:\\Users\\PKrysl\\Documents\\work\\MeshFinder.jl"
+		},
+		{
+			"path": "C:\\Users\\PKrysl\\Documents\\work\\MeshKeeper.jl"
+		},
+		{
+			"path": "C:\\Users\\PKrysl\\Documents\\work\\MeshMaker.jl"
+		},
+		{
+			"path": "C:\\Users\\PKrysl\\Documents\\work\\MeshPorter.jl"
 		}
 	]
 }

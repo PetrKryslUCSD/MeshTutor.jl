@@ -13,7 +13,7 @@ MeshPorter = "ba998677-2e4b-4950-b481-8cc4322dc218"
 
 [compat]
 Literate = "2.4"
-MeshCore = "0.7"
+MeshCore = "0.8"
 MeshFinder = "0.2"
 MeshKeeper = "0.3"
 MeshMaker = "0.3"

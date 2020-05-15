@@ -3,12 +3,6 @@
 [[Base64]]
 uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
 
-[[BinaryProvider]]
-deps = ["Libdl", "Logging", "SHA"]
-git-tree-sha1 = "428e9106b1ff27593cbd979afac9b45b82372b8c"
-uuid = "b99e7846-7c00-51b0-8f62-c81ae34c0232"
-version = "0.5.9"
-
 [[CodecZlib]]
 deps = ["TranscodingStreams", "Zlib_jll"]
 git-tree-sha1 = "ded953804d019afa9a3f98981d99b33e3db7b6da"
@@ -44,11 +38,17 @@ uuid = "76f85450-5226-5b5a-8eaa-529ad045b433"
 [[Libdl]]
 uuid = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
 
+[[Libiconv_jll]]
+deps = ["Libdl", "Pkg"]
+git-tree-sha1 = "e5256a3b0ebc710dbd6da0c0b212164a3681037f"
+uuid = "94ce4f54-9a6c-5748-9c1c-f9c7231a4531"
+version = "1.16.0+2"
+
 [[LightXML]]
-deps = ["BinaryProvider", "Libdl"]
-git-tree-sha1 = "be855e3c975b89746b09952407c156b5e4a33a1d"
+deps = ["Libdl", "XML2_jll"]
+git-tree-sha1 = "e129d9391168c677cd4800f5c0abb1ed8cb3794f"
 uuid = "9c8b4983-aa76-5018-a973-4c85ecc9e179"
-version = "0.8.1"
+version = "0.9.0"
 
 [[LinearAlgebra]]
 deps = ["Libdl"]
@@ -56,9 +56,9 @@ uuid = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 
 [[Literate]]
 deps = ["Base64", "JSON", "REPL"]
-git-tree-sha1 = "7345603884151a5ef894fb85949a8a4faeae8e10"
+git-tree-sha1 = "422133037d6dc5df9f9b97c2cb81fcd9e35ddffe"
 uuid = "98b081ad-f1c9-55d3-8b20-4c87d4299306"
-version = "2.4.0"
+version = "2.5.0"
 
 [[Logging]]
 uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
@@ -69,15 +69,15 @@ uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
 
 [[MeshCore]]
 deps = ["StaticArrays", "Test"]
-git-tree-sha1 = "cae823c58a91b438ef821b2018669ea87b3e5a8f"
+git-tree-sha1 = "dc349cab156dcb53d399afd930d7f7f00145b5bb"
 repo-rev = "master"
 repo-url = "https://github.com/PetrKryslUCSD/MeshCore.jl.git"
 uuid = "43a99bba-f459-4d0e-8139-f3df11d847d4"
-version = "0.7.1"
+version = "0.8.0"
 
 [[MeshFinder]]
 deps = ["LinearAlgebra", "MeshCore", "StaticArrays", "Statistics", "Test"]
-git-tree-sha1 = "c736c7501232146cb4cb0f82324c62def58ff5c0"
+git-tree-sha1 = "f5bb0306c78a47b531f066c8b2a4c5af0bdb6ea0"
 repo-rev = "master"
 repo-url = "https://github.com/PetrKryslUCSD/MeshFinder.jl.git"
 uuid = "94afc05e-a560-4acd-8e11-a7bb2c092f45"
@@ -85,7 +85,7 @@ version = "0.2.0"
 
 [[MeshKeeper]]
 deps = ["MeshCore", "MeshFinder", "MeshMaker", "MeshPorter", "StaticArrays", "Test"]
-git-tree-sha1 = "bd21267cf4f480d611baa5fe7568cf6f8c779689"
+git-tree-sha1 = "39cef7dbbf5151aee691ff26e1f8cffc8f460f18"
 repo-rev = "master"
 repo-url = "https://github.com/PetrKryslUCSD/MeshKeeper.jl.git"
 uuid = "484b717a-98b9-4b0c-89dc-fb7d7e739263"
@@ -93,7 +93,7 @@ version = "0.3.0"
 
 [[MeshMaker]]
 deps = ["DelimitedFiles", "LinearAlgebra", "MeshCore", "MeshPorter", "StaticArrays", "Test", "WriteVTK"]
-git-tree-sha1 = "195e1650efaae598a35fedeefb3908524326408d"
+git-tree-sha1 = "075fd4275ccb7e9b97add80498bd6dc8ff4c4aba"
 repo-rev = "master"
 repo-url = "https://github.com/PetrKryslUCSD/MeshMaker.jl.git"
 uuid = "eff96cbd-3442-458f-9fe2-6cad589fe5e1"
@@ -101,7 +101,7 @@ version = "0.3.0"
 
 [[MeshPorter]]
 deps = ["DelimitedFiles", "LinearAlgebra", "MeshCore", "StaticArrays", "Test", "WriteVTK"]
-git-tree-sha1 = "ec6a506c077a9bd404d6200c347eaed675e3e967"
+git-tree-sha1 = "10eb3c1fe0d4b05fb71527ad9459d8cdf4938fb6"
 repo-rev = "master"
 repo-url = "https://github.com/PetrKryslUCSD/MeshPorter.jl.git"
 uuid = "ba998677-2e4b-4950-b481-8cc4322dc218"
@@ -112,9 +112,9 @@ uuid = "a63ad114-7e13-5084-954f-fe012c677804"
 
 [[Parsers]]
 deps = ["Dates", "Test"]
-git-tree-sha1 = "72c3451932513427caffbd8bab15643ad693804b"
+git-tree-sha1 = "f0abb338b4d00306500056a3fd44c221b8473ef2"
 uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
-version = "1.0.3"
+version = "1.0.4"
 
 [[Pkg]]
 deps = ["Dates", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "REPL", "Random", "SHA", "UUIDs"]
@@ -174,9 +174,15 @@ uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
 
 [[WriteVTK]]
 deps = ["Base64", "CodecZlib", "LightXML", "Random", "TranscodingStreams"]
-git-tree-sha1 = "2e762ea03dff8a5d1a5e5aeea2287bc56a4f1b04"
+git-tree-sha1 = "c774ef1110d40b38eefa01ff7dd4c250e75b9db9"
 uuid = "64499a7a-5c06-52f2-abe2-ccb03c286192"
-version = "1.4.1"
+version = "1.5.0"
+
+[[XML2_jll]]
+deps = ["Libdl", "Libiconv_jll", "Pkg", "Zlib_jll"]
+git-tree-sha1 = "987c02a43fa10a491a5f0f7c46a6d3559ed6a8e2"
+uuid = "02c8fc9c-b97f-50b9-bbe4-9be30ff0a78a"
+version = "2.9.9+4"
 
 [[Zlib_jll]]
 deps = ["Libdl", "Pkg"]
