@@ -24,11 +24,17 @@ bir = boundary(mesh);
 vtkwrite("block-w-hole-boundary", bir)
 
 using MeshFinder: connectedv
-vl = connectedv(bir)
+vl = connectedv(bir);
+using MeshCore: nshapes
+@show length(vl)
+@show nshapes(baseincrel(mesh).right)
 
 using MeshKeeper: vertices
 verts = vertices(mesh)
 
 using MeshCore: subset
-vtkwrite("block-w-hole-vertices", subset(verts, vl))
+ssverts = subset(verts, vl)
+using MeshCore: nshapes
+@show nshapes(ssverts.left), nshapes(ssverts.right)
+vtkwrite("block-w-hole-vertices", ssverts)
 

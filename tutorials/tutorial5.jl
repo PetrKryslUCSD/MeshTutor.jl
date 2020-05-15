@@ -34,10 +34,9 @@ geom = attribute(ir.right, "geom")
 # isoparametric elements. This is how we can calculate the bounding box of the
 # mesh.
 using MeshFinder: initbox, updatebox!
-using MeshCore: nvals
-box = initbox(geom.co(1))
-for i in 1:nvals(geom.co)
-    updatebox!(box, geom.co(i))
+box = initbox(geom[1])
+for i in 1:length(geom)
+    updatebox!(box, geom[i])
 end
 @show box
 

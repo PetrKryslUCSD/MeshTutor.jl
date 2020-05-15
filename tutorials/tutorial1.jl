@@ -66,7 +66,7 @@ using MeshCore: attribute
 for j in 1:nentities(conn, 1)
     k = retrieve(conn, 1, j)
     println("Vertex $(j): global number $(k)")
-    println("   $(geom.val(k))")
+    println("   $(geom[k])")
 end
 
 # The mesh may be exported for viewing with the "Paraview" visualization
