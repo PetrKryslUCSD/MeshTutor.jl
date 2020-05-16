@@ -77,7 +77,7 @@ version = "0.8.0"
 
 [[MeshFinder]]
 deps = ["LinearAlgebra", "MeshCore", "StaticArrays", "Statistics", "Test"]
-git-tree-sha1 = "f5bb0306c78a47b531f066c8b2a4c5af0bdb6ea0"
+git-tree-sha1 = "9c86dbd10bb402d614bc0f2c02152ee2edc9038c"
 repo-rev = "master"
 repo-url = "https://github.com/PetrKryslUCSD/MeshFinder.jl.git"
 uuid = "94afc05e-a560-4acd-8e11-a7bb2c092f45"
