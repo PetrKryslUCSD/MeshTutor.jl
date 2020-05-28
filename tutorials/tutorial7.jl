@@ -25,7 +25,7 @@ using MeshCore: boundary
 using MeshFinder: eselect
 
 bir = boundary(ir)
-bir.right.attributes["geom"] = locs
+@show bir.right.attributes["geom"]
 @show el = eselect(bir; box = [0.0, 3.0, 8.0, 8.0, 0.0, 5.0], inflate = 0.01)
 
 using MeshCore: subset
