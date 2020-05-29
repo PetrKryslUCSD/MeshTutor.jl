@@ -1,6 +1,6 @@
 # MeshTutor.jl
 
-Bundle of tutorials for `MeshKeeper` and its dependencies (`MeshFinder`, `MeshMaker`, `MeshPorter`, all the way down to `MeshCore`).
+Bundle of tutorials for `MeshSteward` and the core mesh library `MeshCore`.
 
 ![Sample mesh](trunc_cyl_shell_0.png)
 
@@ -33,4 +33,5 @@ cd("tutorials")
 open the tutorial file and execute it either in its entirety or line by line. 
 
 !!! note
-Please note that the tutorials may conflict. Make sure to start a new Julia for each tutorial you wish to execute.
+
+Please note that the tutorials may interfere with each other. Make sure to start a new Julia for each tutorial you wish to execute.
