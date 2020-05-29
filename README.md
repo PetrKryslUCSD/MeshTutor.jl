@@ -32,6 +32,6 @@ cd("tutorials")
 ```
 open the tutorial file and execute it either in its entirety or line by line. 
 
-!!! note
+## Note
 
 Please note that the tutorials may interfere with each other. Make sure to start a new Julia for each tutorial you wish to execute.
