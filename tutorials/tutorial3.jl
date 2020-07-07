@@ -62,6 +62,11 @@ selectedv = vselect(mesh, box = box)
 using MeshCore: nshapes
 @show nshapes(selectedv.left)
 
+# The incidence relation links some vertices (the shape collection on the left)
+# to the shape collection of the original vertices (on the right). We can see it
+# from the summary:
+summary(selectedv)
+
 # The incidence relation consisting of the selected vertices may be exported for viewing
 # with the "Paraview" visualization program. Select to visualize this mesh as
 # "Points", and select the size of the points as 8.
