@@ -14,9 +14,9 @@ connectivities = import_ABAQUS("block-w-hole.inp");
 # The imported incidence relations are stored in an array, `connectivities`. In
 # the present case is just one such incidence relation in the file, and we will
 # use it to create the mesh of the block.
-using MeshSteward: Mesh, insert!
+using MeshSteward: Mesh, attach!
 mesh = Mesh()
-insert!(mesh, connectivities[1]);
+attach!(mesh, connectivities[1]);
 
 # We can visualize the mesh by exporting the base relation of the mesh as a VTK
 # file.

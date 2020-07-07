@@ -23,9 +23,9 @@ conn = T3block(a, b, na, nb, :b)
 
 # The variable `conn` is an incidence relation. This incidence relation will
 # become the base relation of the mesh when it gets inserted into the mesh.
-using MeshSteward: Mesh, insert!
+using MeshSteward: Mesh, attach!
 m = Mesh()
-insert!(m, conn)
+attach!(m, conn)
 
 # The embedding space in which the mesh lives is two-dimensional. We can verify that by
 using MeshSteward: nspacedims
@@ -55,12 +55,26 @@ using MeshSteward: baseincrel
 # Now  we compare the number of the triangular elements in those two meshes:
 @show nshapes(baseincrel(m).left) == nshapes(baseincrel(m2).left)
 
-# What is the name of the shape descriptor if the base incidence relation of
-# the mesh?
+# What is the name of the shape descriptor of the shape collection on the left 
+# (that is what we usually consider the "elements" in a finite element mesh) of
+# the base incidence relation of the mesh?
 using MeshCore: shapedesc
 @show shapedesc(baseincrel(m).left).name
 
-# Are the shape descriptors the same for the two meshes?
+# Are the shape descriptors of the shape collection on the left the same for the
+# two meshes?
 @show shapedesc(baseincrel(m).left) == shapedesc(baseincrel(m2).left)
 
+
+# What is the name of the shape descriptor of the shape collection on the right 
+# (that is what we usually consider the "nodes" in a finite element mesh) of
+# the base incidence relation of the mesh?
+using MeshCore: shapedesc
+@show shapedesc(baseincrel(m).right).name
+
+# P1 is the shape descriptor of a point shape. So vertices (nodes) are points.
+
+# Are the shape descriptors of the shape collection on the right the same for the
+# two meshes?
+@show shapedesc(baseincrel(m).right) == shapedesc(baseincrel(m2).right)
 

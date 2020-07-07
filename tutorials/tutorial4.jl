@@ -12,9 +12,9 @@ using MeshSteward: import_NASTRAN
 connectivities = import_NASTRAN("trunc_cyl_shell_0.nas");
 
 # The mesh is created as before by inserting the incidence relation.
-using MeshSteward: Mesh, insert!
+using MeshSteward: Mesh, attach!
 mesh = Mesh()
-insert!(mesh, connectivities[1]);
+attach!(mesh, connectivities[1]);
 
 # Now we extract an incidence relation for the boundary of the tetrahedral
 # mesh.

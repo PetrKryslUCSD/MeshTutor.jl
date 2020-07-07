@@ -16,9 +16,9 @@ connectivities = import_NASTRAN("trunc_cyl_shell_0.nas");
 # The result, `connectivities`, is an an array of incidence relations (in this
 # case there is just one entry in this array). We can create a mesh
 # from this incidence relation as
-using MeshSteward: Mesh, insert!
+using MeshSteward: Mesh, attach!
 mesh = Mesh()
-insert!(mesh, connectivities[1]);
+attach!(mesh, connectivities[1]);
 
 # Let us print the summary information for the mesh:
 using MeshSteward: summary
