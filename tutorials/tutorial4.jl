@@ -27,7 +27,7 @@ println(summary(mesh))
 
 # The summary will look like this:
 # ```
-# Mesh mesh: (3, 0, "") = (elements, vertices): elements = 996 x T4, vertices = 376 x P1 {geom,};  (2, 0, "") = skeleton: shapes = 2368 x T3 {isboundary,}, vertices = 376 x P1 {geom,};  (2, 0, "boundary") = (facets, vertices): facets = 752 x T3, vertices = 376 x P1 {geom,};   
+# Mesh mesh: ((3, 0), "") = (elements, vertices): elements = 996 x T4, vertices = 376 x P1 {geom,};  ((2, 0), "boundary") = (facets, vertices): facets = 752 x T3, vertices = 376 x P1 {geom,};  ((2, 0), "") = skeleton: shapes = 2368 x T3 {isboundary,}, vertices = 376 x P1 {geom,}; (facets, vertices): facets = 752 x T3, vertices = 376 x P1 {geom,}   
 # ```
 
 # The information states that there are 996 T4 tetrahedral elements, 376
@@ -39,7 +39,8 @@ println(summary(mesh))
 # of the boundary. Finally, the boundary itself had been extracted and stored as
 # the incidence relation `(2, 0, "boundary")`.
 
-# We can access this information also through the boundary incidence relation computed above:
+# We can access this information also through the boundary incidence relation
+# computed above:
 println(summary(bir))
 
 # We can see that the boundary consists of 752 triangular facets. In order to
@@ -58,7 +59,7 @@ vtkwrite("trunc_cyl_shell_0-vertices", vertices(mesh))
 # And then we also export the triangular boundary facets.
 vtkwrite("trunc_cyl_shell_0-facets", bir)
 
-# Start "Paraview", load the two files, and
-# select for instance view as "Surface with Edges" with transparency. The result will be a view
-# of the surface of the triangular mesh of the surface and the vertices will be shown as dots.
+# Start "Paraview", load the two files, and select for instance view as "Surface
+# with Edges" with transparency. The result will be a view of the surface of the
+# triangular mesh of the surface and the vertices will be shown as dots.
 @async run(`paraview `)
