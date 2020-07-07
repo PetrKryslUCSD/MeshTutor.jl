@@ -11,7 +11,14 @@
 using MeshSteward: import_NASTRAN
 connectivities = import_NASTRAN("trunc_cyl_shell_0.nas");
 
-# The mesh is created as before by inserting the incidence relation.
+# Note that importing the mesh may mean bringing in multiple incidence
+# relations: the file may hold multiple meshes. The type of the returned value
+# is therefore
+typeof(connectivities)
+
+# i. e. an array of incidence relations.
+
+# The mesh is created as before and the incidence relation is attached to it.
 using MeshSteward: Mesh, attach!
 mesh = Mesh()
 attach!(mesh, connectivities[1]);
