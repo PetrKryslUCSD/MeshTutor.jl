@@ -82,5 +82,5 @@ vtkwrite("trunc_cyl_shell_0-selected-vertices", selectedv)
 
 # It is also possible to start `paraview` and then manually load both
 # files, `"trunc_cyl_shell_0-elements.vtu"` and
-# `"trunc_cyl_shell_0-selected-vertices.vtu"` into the same visualization.
+# `"trunc_cyl_shell_0-selected-vertices.vtu"` into a single visualization.
 
