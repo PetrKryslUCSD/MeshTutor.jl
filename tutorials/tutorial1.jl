@@ -27,7 +27,9 @@ conn = T4block(a, b, c, na, nb, nc)
 # The variable `conn` is an incidence relation. This will become the base
 # relation of the mesh.
 using MeshSteward: Mesh, attach!
+# The mesh is first created.
 m = Mesh()
+# Then the ``(3, 0)`` incidence relation, which defines the tetrahedral elements in terms of the vertices at their corners, is attached to it.
 attach!(m, conn)
 
 # We can now inspect the mesh by printing its summary.
@@ -38,7 +40,7 @@ println(summary(m))
 # also what is called the *base* incidence relation.
 
 # The relations in the mesh are accessed by code. The base relation  is
-# described by the code
+# described by the code:
 using MeshSteward: basecode
 @show irc = basecode(m)
 
@@ -55,10 +57,11 @@ using MeshCore: retrieve
 # We can check that the incidence relation stores four vertices per tetrahedron as
 using MeshCore: nentities
 @show nentities(conn, 1) == 4
-# We checked it for the first tetrahedron, but for this type of incidence relation
-# all relations store the same number of entities.
+# We checked it for the first tetrahedron, but for this type of incidence
+# relation all relations store the same number of entities.
 
-# The vertex shape collection stores the locations of the vertices as an attribute.
+# The vertex shape collection stores the locations of the vertices as an
+# attribute.
 using MeshCore: attribute
 @show geom = attribute(conn.right, "geom")
 
