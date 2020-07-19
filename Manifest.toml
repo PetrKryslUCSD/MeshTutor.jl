@@ -23,9 +23,9 @@ uuid = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 
 [[FillArrays]]
 deps = ["LinearAlgebra", "Random", "SparseArrays"]
-git-tree-sha1 = "4783bbbeade37f2a8bd82af6c112510fde78e532"
+git-tree-sha1 = "be4180bdb27a11188d694ee3773122f4921f1a62"
 uuid = "1a297f60-69ca-5386-bcde-b61e274b549b"
-version = "0.8.12"
+version = "0.8.13"
 
 [[InteractiveUtils]]
 deps = ["Markdown"]
@@ -75,28 +75,28 @@ uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
 
 [[MeshCore]]
 deps = ["StaticArrays", "Test"]
-git-tree-sha1 = "191e95fec543771ecce45525a020dd0a7809cf8b"
+git-tree-sha1 = "12980e5d36c4561d668375c226610ea75b6c5c21"
 repo-rev = "master"
 repo-url = "https://github.com/PetrKryslUCSD/MeshCore.jl.git"
 uuid = "43a99bba-f459-4d0e-8139-f3df11d847d4"
-version = "0.8.7"
+version = "0.9.1"
 
 [[MeshSteward]]
 deps = ["DelimitedFiles", "LinearAlgebra", "MeshCore", "StaticArrays", "Statistics", "Test", "WriteVTK"]
-git-tree-sha1 = "e88e510f627be46c319c9fa2e47844255fd6e534"
+git-tree-sha1 = "8151cc79092be4736e2fc615abe93c5213b18d7a"
 repo-rev = "master"
 repo-url = "https://github.com/PetrKryslUCSD/MeshSteward.jl.git"
 uuid = "ffa89bc3-d1bd-4aea-b9f7-e9902d9f56ab"
-version = "0.5.0"
+version = "0.6.0"
 
 [[Mmap]]
 uuid = "a63ad114-7e13-5084-954f-fe012c677804"
 
 [[Parsers]]
 deps = ["Dates", "Test"]
-git-tree-sha1 = "20ef902ea02f7000756a4bc19f7b9c24867c6211"
+git-tree-sha1 = "10134f2ee0b1978ae7752c41306e131a684e1f06"
 uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
-version = "1.0.6"
+version = "1.0.7"
 
 [[Pkg]]
 deps = ["Dates", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "REPL", "Random", "SHA", "UUIDs"]
@@ -129,9 +129,9 @@ uuid = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 
 [[StaticArrays]]
 deps = ["LinearAlgebra", "Random", "Statistics"]
-git-tree-sha1 = "5c06c0aeb81bef54aed4b3f446847905eb6cbda0"
+git-tree-sha1 = "016d1e1a00fabc556473b07161da3d39726ded35"
 uuid = "90137ffa-7385-5640-81b9-e52037218182"
-version = "0.12.3"
+version = "0.12.4"
 
 [[Statistics]]
 deps = ["LinearAlgebra", "SparseArrays"]

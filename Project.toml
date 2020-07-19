@@ -10,6 +10,6 @@ MeshSteward = "ffa89bc3-d1bd-4aea-b9f7-e9902d9f56ab"
 
 [compat]
 Literate = "2.4"
-MeshCore = "0.8"
-MeshSteward = "0.5"
+MeshCore = "0.9"
+MeshSteward = "0.6"
 julia = "1.4"
