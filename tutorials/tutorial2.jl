@@ -2,7 +2,7 @@
 
 # In this tutorial, we will learn
 # 
-#    -  How to save the mesh to a file.
+#    -  How to save a mesh to a file.
 #    -  How to load a mesh from a file.
 #    -  How to find out the number of elements and their type.
 #    -  How to find out the characteristics of the shape (shape descriptor).
@@ -27,13 +27,15 @@ using MeshSteward: Mesh, attach!
 m = Mesh()
 attach!(m, conn)
 
-# The embedding space in which the mesh lives is two-dimensional. We can verify that by
+# The embedding space in which the mesh lives is two-dimensional. We can verify
+# that by
 using MeshSteward: nspacedims
 @show nspacedims(m)
 
-# We can export the mesh into a set of files that are referred to as the MESH format.
-# This will actually store the mesh as three separate files. The file
-# `"Unit-square-mesh.mesh"` is the directory of the bundle of the mesh files, so to speak.
+# We can export the mesh into a set of files that are referred to as the MESH
+# format. This will actually store the mesh as three separate files. The file
+# `"Unit-square-mesh.mesh"` is the directory of the bundle of the mesh files,
+# so to speak.
 using MeshSteward: save
 save(m, "Unit-square-mesh")
 # Note the trio of files `"Unit-square-mesh.mesh"` (mesh  "directory"), and
@@ -60,6 +62,8 @@ using MeshSteward: baseincrel
 # the base incidence relation of the mesh?
 using MeshCore: shapedesc
 @show shapedesc(baseincrel(m).left).name
+
+# We would expect it to be the name of a three-node triangle, "T3".
 
 # Are the shape descriptors of the shape collection on the left the same for the
 # two meshes?
