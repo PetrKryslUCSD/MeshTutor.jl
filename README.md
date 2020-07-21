@@ -1,6 +1,6 @@
 # MeshTutor.jl
 
-Bundle of tutorials for `MeshSteward` and the core mesh library `MeshCore`.
+Bundle of tutorials for the mesh-management library, [`MeshSteward`](https://github.com/PetrKryslUCSD/MeshSteward.jl.git), and the core mesh library, [`MeshCore`](https://github.com/PetrKryslUCSD/MeshCore.jl.git).
 
 ![Sample mesh](trunc_cyl_shell_0.png)
 
