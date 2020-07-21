@@ -2,7 +2,7 @@
 
 # In this tutorial, we will learn
 # 
-#    -  How to import an incidence relation from a file.
+#    -  How to import an incidence relation from a Nastran file.
 #    -  How to create a mesh from this incidence relation.
 #    -  How to print the summary of the mesh.
 #    -  How to search for some vertices.
@@ -24,9 +24,9 @@ attach!(mesh, connectivities[1]);
 using MeshSteward: summary
 println(summary(mesh))
 
-# `(3, 0)` means relationship between three-dimensional finite elements and the
-# zero dimensional vertices (dimension in the sense of manifolds). It is
-# referred to as the code of the incidence relation. The final piece of
+# Here `(3, 0)` means relationship between three-dimensional finite elements and
+# the zero dimensional vertices (dimension in the sense of manifolds). It is
+# referred to as the "code" of the incidence relation. The final piece of
 # information shows the attributes of the vertex shape collection: `geom`
 # provides access to the locations of the vertices.
 
@@ -67,8 +67,9 @@ using MeshCore: nshapes
 # from the summary:
 summary(selectedv)
 
-# The incidence relation consisting of the selected vertices may be exported for viewing
-# with the "Paraview" visualization program. Select to visualize this mesh as
+# The incidence relation consisting of the selected vertices may be exported for
+# viewing with the "Paraview" visualization program. Select to visualize this
+# mesh as
 # "Points", and select the size of the points as 8.
 using MeshSteward: vtkwrite
 vtkwrite("trunc_cyl_shell_0-selected-vertices", selectedv)
