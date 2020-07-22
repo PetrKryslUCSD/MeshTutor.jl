@@ -6,6 +6,12 @@ In this tutorial, we will learn
    -  How to find the vertices on the boundary of the mesh.
    -  How to visualize the vertices on the boundary of the mesh.
 
+The tutorial will produce files for mesh visualization in the
+[Paraview](https://www.paraview.org/) format (VTK). One can display this
+information by loading the file with `paraview.exe`. When the tutorial is
+executed in `mybinder.org`, the graphics file needs to be downloaded to your
+desktop, and then visualized locally.
+
 In this tutorial we import an Abaqus mesh. It represents a rectangular block
 with a circular opening, meshed with quadrilaterals.
 
@@ -33,8 +39,8 @@ using MeshSteward: baseincrel
 vtkwrite("block-w-hole", baseincrel(mesh))
 ```
 
-The boundary of the mesh would consist of line segments, and may be extracted
-as:
+The boundary of the mesh consists of curve (line) segments, and may be
+extracted as:
 
 ```julia
 using MeshSteward: boundary
@@ -65,27 +71,45 @@ The shape collection `baseincrel(mesh).right` represents the vertices in the
 mesh. The very same collection may be retrieved from the mesh as:
 
 ```julia
-using
-MeshSteward: vertices
-verts = vertices(mesh)
+using MeshSteward: vertices, summary
+verts = vertices(mesh);
+summary(verts)
 ```
 
 The incidence relation `(0, 0)` that represents just the vertices on the
 boundary can be created as a subset of all the vertices in the mesh.
 
 ```julia
-using MeshCore: ir_subset
-ssverts = ir_subset(verts, vl)
+using MeshCore: ir_subset, summary
+ssverts = ir_subset(verts, vl);
+summary(ssverts)
 ```
 
 The vertices on the boundary may be exported for visualization into a VTK
-file. The entities represented in the file are simply points. They may be
-visualized with "Point Gaussian" as little balls.
+file.
 
 ```julia
 using MeshCore: nshapes
 @show nshapes(ssverts.left), nshapes(ssverts.right)
-vtkwrite("block-w-hole-vertices", ssverts)
+```
+
+Here we inspect the incidence relation. We can see that the shape collection on the left is called "shapes".
+
+```julia
+using MeshSteward: summary
+@show summary(ssverts)
+```
+
+Hence, we instruct the export function to incorporate into the output file the
+shape collection on the left of the incidence relation. We do that by
+specifying the tag "shapes". The information will be written out as cell
+data, and can be visualized with the glyphs. The entities represented in the
+file are simply points. In paraview, they may be visualized with "3D glyphs"
+as little balls: choose "Representation" to be "3D glyphs", and then the
+glyph type "Sphere".
+
+```julia
+vtkwrite("block-w-hole-boundary-vertices", ssverts, [(name = "shapes",)])
 ```
 
 ---

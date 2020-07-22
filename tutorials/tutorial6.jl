@@ -6,6 +6,12 @@
 #    -  How to find the vertices on the boundary of the mesh.
 #    -  How to visualize the vertices on the boundary of the mesh.
 
+# The tutorial will produce files for mesh visualization in the 
+# [Paraview](https://www.paraview.org/) format (VTK). One can display this
+# information by loading the file with `paraview.exe`. When the tutorial is
+# executed in `mybinder.org`, the graphics file needs to be downloaded to your
+# desktop, and then visualized locally.
+
 # In this tutorial we import an Abaqus mesh. It represents a rectangular block
 # with a circular opening, meshed with quadrilaterals. 
 using MeshSteward: import_ABAQUS
@@ -51,15 +57,25 @@ summary(verts)
 
 # The incidence relation `(0, 0)` that represents just the vertices on the
 # boundary can be created as a subset of all the vertices in the mesh.
-using MeshCore: ir_subset
-ssverts = ir_subset(verts, vl)
+using MeshCore: ir_subset, summary
+ssverts = ir_subset(verts, vl);
+summary(ssverts)
 
 # The vertices on the boundary may be exported for visualization into a VTK
-# file. The entities represented in the file are simply points. In paraview,
-# they may be visualized with "3D glyphs" as little balls: choose "Representation" to be "3D glyphs", and then the glyph type "Sphere".
+# file. 
 using MeshCore: nshapes
 @show nshapes(ssverts.left), nshapes(ssverts.right)
+
+# Here we inspect the incidence relation. We can see that the shape collection on the left is called "shapes".
 using MeshSteward: summary
-summary(ssverts)
+@show summary(ssverts)
+
+# Hence, we instruct the export function to incorporate into the output file the
+# shape collection on the left of the incidence relation. We do that by
+# specifying the tag "shapes". The information will be written out as cell
+# data, and can be visualized with the glyphs. The entities represented in the
+# file are simply points. In paraview, they may be visualized with "3D glyphs"
+# as little balls: choose "Representation" to be "3D glyphs", and then the
+# glyph type "Sphere".
 vtkwrite("block-w-hole-boundary-vertices", ssverts, [(name = "shapes",)])
 
