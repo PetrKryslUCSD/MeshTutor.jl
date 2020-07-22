@@ -8,9 +8,9 @@ In this tutorial, we will learn
    -  How to search for some vertices.
    -  How to export the selected vertices for visualization.
 
-The tutorial will produce a visualization in the [Paraview]
-(https://www.paraview.org/) format (VTK). One can display this mesh by
-loading the file with `paraview.exe`. When the tutorial is executed in
+The tutorial will produce a visualization in the
+[Paraview](https://www.paraview.org/) format (VTK). One can display this mesh
+by loading the file with `paraview.exe`. When the tutorial is executed in
 `mybinder.org`, the graphics file needs to be downloaded to your desktop, and
 then visualized locally.
 

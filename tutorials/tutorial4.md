@@ -6,6 +6,12 @@ In this tutorial, we will learn
    -  How to understand the summary of the mesh.
    -  How to export individual incidence relations for visualization.
 
+The tutorial will produce files for mesh visualization in the
+[Paraview](https://www.paraview.org/) format (VTK). One can display this
+information by loading the file with `paraview.exe`. When the tutorial is
+executed in `mybinder.org`, the graphics file needs to be downloaded to your
+desktop, and then visualized locally.
+
 As in the previous tutorials, we import a NASTRAN mesh file.
 This file stores a tetrahedral mesh of a hollow cylinder.
 
@@ -24,7 +30,9 @@ typeof(connectivities)
 
 i. e. an array of incidence relations.
 
-The mesh is created as before and the incidence relation is attached to it.
+In this particular case the file holds only a single incidence relation
+(that is there is a single element in the array `connectivities`). The mesh
+is created as before and the incidence relation is attached to it.
 
 ```julia
 using MeshSteward: Mesh, attach!

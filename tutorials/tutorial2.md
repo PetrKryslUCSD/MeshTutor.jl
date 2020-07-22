@@ -27,16 +27,16 @@ tiled) as labeled `:b`.
 
 ```julia
 using MeshSteward: T3block
-conn = T3block(a, b, na, nb, :b)
+conn = T3block(a, b, na, nb, :b);
 ```
 
 The variable `conn` is an incidence relation. This incidence relation will
-become the base relation of the mesh when it gets inserted into the mesh.
+become the base relation of the mesh when it gets attached to the mesh.
 
 ```julia
 using MeshSteward: Mesh, attach!
 m = Mesh()
-attach!(m, conn)
+attach!(m, conn);
 ```
 
 The embedding space in which the mesh lives is two-dimensional. We can verify
@@ -70,7 +70,7 @@ specifically for the purpose of comparing the two meshes.
 
 ```julia
 using MeshSteward: load
-m2 = load(Mesh(), "Unit-square-mesh")
+m2 = load(Mesh(), "Unit-square-mesh");
 ```
 
 Now we compare the number of  elements  stored in those two meshes. First the
