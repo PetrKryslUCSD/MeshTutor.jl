@@ -30,7 +30,7 @@ using MeshSteward: Mesh, attach!
 # The mesh is first created.
 m = Mesh()
 # Then the ``(3, 0)`` incidence relation, which defines the tetrahedral elements in terms of the vertices at their corners, is attached to it.
-attach!(m, conn)
+attach!(m, conn);
 
 # We can now inspect the mesh by printing its summary.
 println(summary(m))
@@ -42,11 +42,11 @@ println(summary(m))
 # The relations in the mesh are accessed by code. The base relation  is
 # described by the code:
 using MeshSteward: basecode
-@show irc = basecode(m)
+@show irc = basecode(m);
 
 # We can retrieve the base incidence relation from the mesh as
 using MeshSteward: increl
-conn = increl(m, basecode(m))
+conn = increl(m, basecode(m));
 
 # We can access the data stored in the incidence relation as follows. For
 # instance, the connectivity of the mesh can be accessed with `retrieve`. The
@@ -63,7 +63,7 @@ using MeshCore: nentities
 # The vertex shape collection stores the locations of the vertices as an
 # attribute.
 using MeshCore: attribute
-@show geom = attribute(conn.right, "geom")
+@show geom = attribute(conn.right, "geom");
 
 # The coordinates of the vertices of the first tetrahedron can be accessed as
 for j in 1:nentities(conn, 1)
