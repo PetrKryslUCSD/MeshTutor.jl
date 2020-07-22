@@ -7,7 +7,6 @@
 #    -  How to find out the number of elements and their type.
 #    -  How to find out the characteristics of the shape (shape descriptor).
 
-
 # We will generate the triangular mesh inside a rectangular block.
 # The block will have the dimensions shown below:
 a, b = 1.0, 1.0
@@ -19,13 +18,13 @@ na, nb = 2, 3
 # orientation of the diagonals (in other words the pattern in which the block is
 # tiled) as labeled `:b`.
 using MeshSteward: T3block
-conn = T3block(a, b, na, nb, :b)
+conn = T3block(a, b, na, nb, :b);
 
 # The variable `conn` is an incidence relation. This incidence relation will
 # become the base relation of the mesh when it gets inserted into the mesh.
 using MeshSteward: Mesh, attach!
 m = Mesh()
-attach!(m, conn)
+attach!(m, conn);
 
 # The embedding space in which the mesh lives is two-dimensional. We can verify
 # that by
@@ -46,7 +45,7 @@ readdir(".")
 # We will now load the mesh we saved just now into another mesh that we create
 # specifically for the purpose of comparing the two meshes.
 using MeshSteward: load
-m2 = load(Mesh(), "Unit-square-mesh")
+m2 = load(Mesh(), "Unit-square-mesh");
 
 # Now we compare the number of  elements  stored in those two meshes. First the
 # vertices (those are the shapes on the right of the incidence relation).
