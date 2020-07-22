@@ -1,6 +1,6 @@
 # MeshTutor.jl
 
-Bundle of tutorials for `MeshSteward` and the core mesh library `MeshCore`.
+Bundle of tutorials for the mesh-management library, [`MeshSteward`](https://github.com/PetrKryslUCSD/MeshSteward.jl.git), and the core mesh library, [`MeshCore`](https://github.com/PetrKryslUCSD/MeshCore.jl.git).
 
 ![Sample mesh](trunc_cyl_shell_0.png)
 
@@ -12,6 +12,15 @@ git clone https://github.com/PetrKryslUCSD/MeshTutor.jl.git
 ```
 
 ## Usage
+
+### Using Binder
+
+The tutorials may be executed on `mybinder.org`. 
+# [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/PetrKryslUCSD/MeshTutor.jl/master)
+The advantage is that no local installation of Julia and of the repository is needed. The disadvantage is that the graphics postprocessing will not be as easy as for local execution, since the binder cannot run the visualization program.  The visualization is still possible by using the "File" menu,  checking the generated file, and downloading it to your computer.
+
+
+### Using a local of the repository
 
 Change your working directory to `MeshTutor`. Start Julia and run
 the following:

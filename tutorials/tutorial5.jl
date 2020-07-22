@@ -30,7 +30,10 @@ println(summary(ir))
 using MeshSteward: geometry
 geom = geometry(mesh);
 
-# The attribute holds one value per entity with which it is associated. In particular, for the geometry attribute we retrieved above from the mesh, there is one value (coordinate tuple) for each vertex. For instance, the location of vertex 1 is
+# The attribute holds one value per entity with which it is associated. In
+# particular, for the geometry attribute we retrieved above from the mesh,
+# there is one value (coordinate tuple) for each vertex. For instance, the
+# location of vertex 1 is
 @show geom[1]
 
 # The number of values stored in the attribute should match the number of

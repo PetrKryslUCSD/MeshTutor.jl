@@ -24,8 +24,8 @@ using MeshSteward: vtkwrite
 using MeshSteward: baseincrel
 vtkwrite("block-w-hole", baseincrel(mesh))
 
-# The boundary of the mesh would consist of line segments, and may be extracted
-# as:
+# The boundary of the mesh consists of curve (line) segments, and may be
+# extracted as:
 using MeshSteward: boundary
 bir = boundary(mesh);
 vtkwrite("block-w-hole-boundary", bir)
@@ -45,9 +45,9 @@ using MeshCore: nshapes
 
 # The shape collection `baseincrel(mesh).right` represents the vertices in the
 # mesh. The very same collection may be retrieved from the mesh as: 
-using
-MeshSteward: vertices 
-verts = vertices(mesh)
+using MeshSteward: vertices, summary
+verts = vertices(mesh);
+summary(verts)
 
 # The incidence relation `(0, 0)` that represents just the vertices on the
 # boundary can be created as a subset of all the vertices in the mesh.
@@ -55,9 +55,11 @@ using MeshCore: ir_subset
 ssverts = ir_subset(verts, vl)
 
 # The vertices on the boundary may be exported for visualization into a VTK
-# file. The entities represented in the file are simply points. They may be
-# visualized with "Point Gaussian" as little balls.
+# file. The entities represented in the file are simply points. In paraview,
+# they may be visualized with "3D glyphs" as little balls: choose "Representation" to be "3D glyphs", and then the glyph type "Sphere".
 using MeshCore: nshapes
 @show nshapes(ssverts.left), nshapes(ssverts.right)
-vtkwrite("block-w-hole-vertices", ssverts)
+using MeshSteward: summary
+summary(ssverts)
+vtkwrite("block-w-hole-boundary-vertices", ssverts, [(name = "shapes",)])
 

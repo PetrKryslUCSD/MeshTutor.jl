@@ -7,6 +7,8 @@ version = "0.1.0"
 Literate = "98b081ad-f1c9-55d3-8b20-4c87d4299306"
 MeshCore = "43a99bba-f459-4d0e-8139-f3df11d847d4"
 MeshSteward = "ffa89bc3-d1bd-4aea-b9f7-e9902d9f56ab"
+StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
+WriteVTK = "64499a7a-5c06-52f2-abe2-ccb03c286192"
 
 [compat]
 Literate = "2.4"
