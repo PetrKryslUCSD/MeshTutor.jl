@@ -8,16 +8,10 @@
 #    -  How to export the mesh and visualize it.
 
 # The tutorial comes with a file containing representation of the mesh for
-# visualization in the [Paraview](https://www.paraview.org/) format. One can
+# visualization in the [Paraview](https://www.paraview.org/) format (VTK). One can
 # visualize this mesh by loading the file `mymesh.vtu` with `paraview.exe`.
-# One of the aims of this tutorial is to work with this mesh: the generated,
-# and eventually store it in the visualization format.
-
-using Pkg
-for p in ["StaticArrays", "WriteVTK", "MeshCore", "MeshSteward"]
-    Pkg.add(p)
-end
-using StaticArrays, WriteVTK
+# One of the aims of this tutorial is to work with this mesh: to generate it,
+# inspect it, and eventually to store it in the VTK format.
 
 # We will generate the tetrahedral mesh inside a rectangular block.
 # The block will have the dimensions shown below:
