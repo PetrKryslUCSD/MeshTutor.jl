@@ -51,8 +51,8 @@ verts = vertices(mesh)
 
 # The incidence relation `(0, 0)` that represents just the vertices on the
 # boundary can be created as a subset of all the vertices in the mesh.
-using MeshCore: subset
-ssverts = subset(verts, vl)
+using MeshCore: ir_subset
+ssverts = ir_subset(verts, vl)
 
 # The vertices on the boundary may be exported for visualization into a VTK
 # file. The entities represented in the file are simply points. They may be
