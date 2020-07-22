@@ -13,8 +13,6 @@
 # One of the aims of this tutorial is to work with this mesh: the generated,
 # and eventually store it in the visualization format.
 
-# [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/PetrKryslUCSD/MeshTutor.jl/master)
-
 using Pkg
 for p in ["StaticArrays", "WriteVTK", "MeshCore", "MeshSteward"]
     Pkg.add(p)
