@@ -5,6 +5,12 @@
 #    -  How to access an attribute of an incidence relation.
 #    -  How to find the bounding box of the mesh.
 
+# The tutorial will produce files for mesh visualization in the 
+# [Paraview](https://www.paraview.org/) format (VTK). One can display this
+# information by loading the file with `paraview.exe`. When the tutorial is
+# executed in `mybinder.org`, the graphics file needs to be downloaded to your
+# desktop, and then visualized locally.
+
 module mmeses1
 using StaticArrays
 using MeshCore: nshapes
