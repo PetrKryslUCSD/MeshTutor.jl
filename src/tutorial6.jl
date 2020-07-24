@@ -73,9 +73,14 @@ using MeshSteward: summary
 # Hence, we instruct the export function to incorporate into the output file the
 # shape collection on the left of the incidence relation. We do that by
 # specifying the tag "shapes". The information will be written out as cell
-# data, and can be visualized with the glyphs. The entities represented in the
+# data, and can be visualized with glyphs. The entities represented in the
 # file are simply points. In paraview, they may be visualized with "3D glyphs"
 # as little balls: choose "Representation" to be "3D glyphs", and then the
 # glyph type "Sphere".
 vtkwrite("block-w-hole-boundary-vertices", ssverts, [(name = "shapes",)])
 
+# Start "Paraview", load the boundary and boundary-vertex files. Visualize the boundary vertices with glyphs.
+@async run(`paraview `)
+
+# The visualization may look like this:
+# ![Visualization of the facets and vertices](t6_i1.png)
