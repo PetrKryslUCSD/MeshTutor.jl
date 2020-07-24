@@ -21,7 +21,7 @@ using MeshSteward: T3block
 conn = T3block(a, b, na, nb, :b);
 
 # The variable `conn` is an incidence relation. This incidence relation will
-# become the base relation of the mesh when it gets inserted into the mesh.
+# become the base relation of the mesh when it gets attached to the mesh.
 using MeshSteward: Mesh, attach!
 m = Mesh()
 attach!(m, conn);
