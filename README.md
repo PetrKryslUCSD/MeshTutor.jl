@@ -6,6 +6,15 @@ Bundle of tutorials for the mesh-management library, [`MeshSteward`](https://git
 
 ## Usage
 
+!!! note
+    The tutorial will produce files for mesh visualization in the[Paraview]
+    (https://www.paraview.org/) format (VTK). One can display this information by
+    loading the file with `paraview.exe`. When the tutorial is executed in
+    `mybinder.org`, the graphics file needs to be downloaded to your desktop, and
+    then visualized locally. Executing the notebooks locally may start
+    `paraview.exe` automatically, *provided the executable is somewhere in the
+    path*. Otherwise they will be a harmless error: failure to start the visualization program. Start then a program of your choice manually to visualize the VTK files.
+
 ### Executing the tutorial in notebook form with `mybinder`
 
 The tutorials may be executed on `mybinder.org`. 
@@ -34,7 +43,7 @@ Pkg.build()
 In general the tutorials require the folder `MeshTutor.jl/notebooks` to be the working directory since the scripts assume that the input files will be found in the current directory. So to run a tutorial, do
 ```
 using IJulia    
-IJulia.notebook(dir = pwd())
+IJulia.notebook(dir = pwd(), detached = true)
 ```
 head over to the `notebooks` folder, open the tutorial notebook, and evaluate in Jupyter.
 
