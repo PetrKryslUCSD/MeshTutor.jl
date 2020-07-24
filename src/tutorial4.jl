@@ -78,3 +78,6 @@ vtkwrite("trunc_cyl_shell_0-facets", bir)
 # with Edges" with transparency. The result will be a view of the surface of the
 # triangular mesh of the surface and the vertices will be shown as dots.
 @async run(`paraview `)
+
+# The visualization may look like this:
+# ![Visualization of the facets and vertices](t4_i1.png)

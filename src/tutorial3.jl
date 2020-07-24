@@ -91,3 +91,8 @@ vtkwrite("trunc_cyl_shell_0-selected-vertices", selectedv)
 # files, `"trunc_cyl_shell_0-elements.vtu"` and
 # `"trunc_cyl_shell_0-selected-vertices.vtu"` into a single visualization.
 
+
+# The visualization may look like this:
+# ![Visualization of the elements and selected vertices](t3_i1.png)
+
+

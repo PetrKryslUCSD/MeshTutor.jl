@@ -11,6 +11,6 @@ for tut1 in readdir(sources_dir)
     end
 end
 
-for insf in ["trunc_cyl_shell_0.nas"]
-    cp(insf,  joinpath(notebooks_dir, insf))
+for insf in ["trunc_cyl_shell_0.nas", "samplet4.jl", "t3_i1.png", "t4_i1.png"]
+    cp(insf,  joinpath(notebooks_dir, insf), force=true)
 end

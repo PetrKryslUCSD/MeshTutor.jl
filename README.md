@@ -28,16 +28,13 @@ Change your working directory to `MeshTutor`. Start Julia and run
 the following:
 ```
 using Pkg; Pkg.activate("."); Pkg.instantiate()
+Pkg.build()
 ```
 
-Note that there is a Markdown version of the tutorials, which render nicely the code and the accompanying text. For instance Google Chrome is capable of displaying such markdown files quite well.
-
-In general the tutorials require the folder `MeshTutor.jl/tutorials` to be the working directory since the scripts assume that the input files will be found in the current directory. So to run a tutorial, do
+In general the tutorials require the folder `MeshTutor.jl/notebooks` to be the working directory since the scripts assume that the input files will be found in the current directory. So to run a tutorial, do
 ```
-cd("tutorials")
+using IJulia    
+IJulia.notebook(dir = pwd())
 ```
-open the tutorial file and execute it either in its entirety with `include("tutorial1.jl")` or line by line in the IDE (for instance Sublime Text or Visual Studio Code). 
+head over to the `notebooks` folder, open the tutorial notebook, and evaluate in Jupyter.
 
-#### Note
-
-Please note that the tutorials may interfere with each other. Make sure to start a new Julia for each tutorial you wish to execute.
