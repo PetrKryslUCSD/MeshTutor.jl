@@ -6,22 +6,25 @@ Bundle of tutorials for the mesh-management library, [`MeshSteward`](https://git
 
 ## Usage
 
-!!! note
-    The tutorial will produce files for mesh visualization in the[Paraview]
-    (https://www.paraview.org/) format (VTK). One can display this information by
-    loading the file with `paraview.exe`. When the tutorial is executed in
-    `mybinder.org`, the graphics file needs to be downloaded to your desktop, and
-    then visualized locally. Executing the notebooks locally may start
-    `paraview.exe` automatically, *provided the executable is somewhere in the
-    path*. Otherwise they will be a harmless error: failure to start the visualization program. Start then a program of your choice manually to visualize the VTK files.
+### Visualization
 
-### Executing the tutorial in notebook form with `mybinder`
+The tutorial will produce files for mesh visualization in the[Paraview]
+(https://www.paraview.org/) format (VTK). One can display this information by
+loading the file with `paraview.exe`. When the tutorial is executed in
+`mybinder.org`, the graphics file needs to be downloaded to your desktop, and
+then visualized locally. Executing the notebooks locally may start
+`paraview.exe` automatically, *provided the executable is somewhere in the
+path*. Otherwise they will be a harmless error: failure to start the
+visualization program. Start then a program of your choice manually to
+visualize the VTK files.
+
+### Executing the tutorials in notebook form with `mybinder`
 
 The tutorials may be executed on `mybinder.org`. 
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/PetrKryslUCSD/MeshTutor.jl/master)
 
-Entered the `tutorials` folder and open one of the tutorial notebooks (for instance `tutorial1.ipynb`). Then execute the notebook, either cell by cell or in its entirety.
+Enter the `tutorials` folder and open one of the tutorial notebooks (for instance `tutorial1.ipynb`). Then execute the notebook, either cell by cell or in its entirety.
 
 The advantage is that no local installation of Julia and of the repository is needed. The disadvantage is that the graphics postprocessing will not be as easy as for local execution, since the binder cannot run the visualization program.  The visualization is still possible by using the "File" menu in the notebook interface, checking the box next to the generated file, and downloading it to your computer.
 
@@ -33,7 +36,7 @@ Clone the package to your working directory:
 git clone https://github.com/PetrKryslUCSD/MeshTutor.jl.git
 ```
 
-Change your working directory to `MeshTutor`. Start Julia and run
+Change your working directory to `MeshTutor.jl`. Start Julia and run
 the following:
 ```
 using Pkg; Pkg.activate("."); Pkg.instantiate()
