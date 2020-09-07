@@ -50,3 +50,4 @@ IJulia.notebook(dir = pwd(), detached = true)
 ```
 head over to the `notebooks` folder, open the tutorial notebook, and evaluate in Jupyter.
 
+

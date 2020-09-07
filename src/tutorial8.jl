@@ -11,67 +11,64 @@
 # executed in `mybinder.org`, the graphics file needs to be downloaded to your
 # desktop, and then visualized locally.
 
-module mmeses1
+# We load the truncated cylindrical shell mesh from a file:
 using StaticArrays
+using MeshSteward: import_NASTRAN
+
+connectivities = import_NASTRAN("trunc_cyl_shell_0.nas")
+# There should be only a single incidence relation here:
+@show length(connectivities) == 1
+
+# The incidence relation is now extracted from the array:
+connectivity = connectivities[1]
+
+# We can check that the mesh was loaded correctly (of course in this case we
+# know how many vertices and how many elements there should be).
 using MeshCore: nshapes
-using MeshCore: attribute, nrelations, skeleton, boundary, subset
-using MeshSteward: import_NASTRAN, vtkwrite, eselect
-using Test
-function test()
-    connectivities = import_NASTRAN("trunc_cyl_shell_0.nas")
-    @test length(connectivities) == 1
-    connectivity = connectivities[1]
-    @test (nshapes(connectivity.right), nshapes(connectivity.left)) == (376, 996)
-    vertices = connectivity.right
-    geom = attribute(vertices, "geom")
-    vtkwrite("trunc_cyl_shell_0-search", connectivity)
-    try rm("trunc_cyl_shell_0-search.vtu"); catch end
-    
-    bir = boundary(connectivity)
-    el = eselect(bir; facing = true, direction = x -> [0.0, 0.0, 1.0], dotmin = 0.99)
-    @test length(el) == 44
-    vtkwrite("trunc_cyl_shell_0-search-z=top", subset(bir, el))
-    try rm("trunc_cyl_shell_0-search-z=top.vtu"); catch end
-    el = eselect(bir; facing = true, direction = x -> [-x[1], -x[2], 0.0], dotmin = 0.99)
-    @test length(el) == 304
-    vtkwrite("trunc_cyl_shell_0-search-interior", subset(bir, el))
-    try rm("trunc_cyl_shell_0-search-interior.vtu"); catch end
-    true
-end
-end
-using .mmeses1
-mmeses1.test()
+@show (nshapes(connectivity.right), nshapes(connectivity.left)) == (376, 996)
 
+# The vertices are the shape collection on the right of the incidence relation.
+vertices = connectivity.right
 
-module mmeses2
-using StaticArrays
-using MeshCore: P1, T3, ShapeColl,  manifdim, nvertices, nshapes, indextype, IncRel
-using MeshCore: attribute, nrelations, skeleton, boundary, subset, VecAttrib
-using MeshSteward: import_NASTRAN, vtkwrite, eselect, connectedv
-using ..samplet3: samplet3mesh
-using Test
-function test()
-    xyz, cc = samplet3mesh()
-    # Construct the initial incidence relation
-    N, T = size(xyz, 2), eltype(xyz)
-    locs =  VecAttrib([SVector{N, T}(xyz[i, :]) for i in 1:size(xyz, 1)])
-    vrts = ShapeColl(P1, length(locs))
-    tris = ShapeColl(T3, size(cc, 1))
-    ir = IncRel(tris, vrts, cc)
-    vl = connectedv(ir)
-    @test length(vl) == size(xyz, 1)
-    bir = boundary(ir)
-    bir.right.attributes["geom"] = locs
-    
-    el = eselect(bir; facing = true, direction = x -> [-1.0, 0.0], dotmin = 0.99)
-    @test length(el) == 3
-    vtkwrite("samplet3mesh-search", ir)
-    vtkwrite("samplet3mesh-search-x=0_0", subset(bir, el))
-    try rm("samplet3mesh-search" * ".vtu"); catch end
-    try rm("samplet3mesh-search-x=0_0" * ".vtu"); catch end
-    true
-end
-end
-using .mmeses2
-mmeses2.test()
+# We now write out a postprocessing file with the elements. Note that we pass
+# the `connectivity` incidence relation to get the elements stored in the
+# file.
+using MeshSteward: vtkwrite
+vtkwrite("trunc_cyl_shell_0-search", connectivity)
+
+# Compute the boundary incidence relation: the facets bounding the domain.
+using MeshCore: ir_boundary
+bir = ir_boundary(connectivity)
+
+# Select the boundary faces whose normals point in the direction `[0.0, 0.0,
+# 1.0]`, in the sense that the dot product between the normal in this
+# direction  >= 0.99. 
+using MeshSteward: eselect
+el = eselect(bir; facing = true, direction = x -> [0.0, 0.0, 1.0], dotmin = 0.99)
+
+# We know how many triangles compose this part of the boundary: check the length
+# of the list of the triangles.
+@show length(el) == 44
+
+# Now export the triangles as a VTK file. This can now be displayed side-by-side
+# with the original mesh in `"trunc_cyl_shell_0-search.vtk"`. The subset
+# defined by the list `el` from the boundary incidence relation is extracted
+# and passed to `vtkwrite`.
+using MeshCore: ir_subset
+vtkwrite("trunc_cyl_shell_0-search-z=top", ir_subset(bir, el))
+
+# Similar procedure can be applied to select the triangular faces on the
+# cylindrical surface inside the shell. The direction is now defined by taking
+# the location of the point where the normal is calculated, connecting it with
+# the axis of revolution.
+el = eselect(bir; facing = true, direction = x -> [-x[1], -x[2], 0.0], dotmin = 0.99)
+
+# Again, we know how many triangles compose this part of the boundary: check the
+# length of the list of the triangles.
+@show length(el) == 304
+
+# Now export the triangles as a VTK file. This can now be displayed side-by-side
+# with the original mesh in `"trunc_cyl_shell_0-search.vtk"`.
+vtkwrite("trunc_cyl_shell_0-search-interior", ir_subset(bir, el))
+
 

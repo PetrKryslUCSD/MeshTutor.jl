@@ -13,13 +13,13 @@
 				"*.jl",
 				"*.md"
 			],
-			"path": "."
+			"path": ".",
 		},
 		{
-			"path": "C:\\Users\\PKrysl\\Documents\\work\\MeshCore.jl"
+			"path": "C:\\Users\\PetrKrysl\\Documents\\work\\MeshSteward.jl",
 		},
 		{
-			"path": "C:\\Users\\PKrysl\\Documents\\work\\MeshSteward.jl"
-		}
-	]
+			"path": "C:\\Users\\PetrKrysl\\Documents\\work\\MeshCore.jl"
+		},
+	],
 }
