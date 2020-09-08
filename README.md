@@ -51,3 +51,8 @@ IJulia.notebook(dir = pwd(), detached = true)
 head over to the `notebooks` folder, open the tutorial notebook, and evaluate in Jupyter.
 
 
+## News
+
+- 09/08/2020: Updated for MeshCore 0.10 and MeshSteward 0.7.
+
+
