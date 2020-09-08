@@ -11,7 +11,7 @@ MeshSteward = "ffa89bc3-d1bd-4aea-b9f7-e9902d9f56ab"
 StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
 
 [compat]
-Literate = "2.4"
-MeshCore = "0.9"
-MeshSteward = "0.6"
-julia = "1.4"
+Literate = "^2.4"
+MeshCore = "^0.10"
+MeshSteward = "^0.7"
+julia = "^1.5"
