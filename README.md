@@ -53,6 +53,7 @@ head over to the `notebooks` folder, open the tutorial notebook, and evaluate in
 
 ## News
 
+- 12/17/2020: Updated for MeshCore 1.0 and MeshSteward 1.0.
 - 09/08/2020: Updated for MeshCore 0.10 and MeshSteward 0.7.
 
 
