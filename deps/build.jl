@@ -1,15 +1,18 @@
 using Literate
 
-sources_dir = joinpath(@__DIR__, "..", "src")
+@show sources_dir = joinpath(@__DIR__, "..", "deps")
 notebooks_dir = joinpath(@__DIR__, "..", "notebooks")
 
-mkdir(notebooks_dir)
+if !isdir(notebooks_dir)
+    mkdir(notebooks_dir)    
+end
 
-for tut1 in readdir(sources_dir)
-    if occursin(r"tutorial.*.jl", tut1)
-        # Literate.markdown(tut1, "."; documenter=false);
-        Literate.notebook(joinpath(sources_dir, tut1), notebooks_dir; documenter=false, execute=false)
-        cp(tut1,  joinpath(notebooks_dir, tut1), force=true)
+for t in readdir(sources_dir)
+        @show t
+    if occursin(r"tutorial.*.jl", t)
+        # Literate.markdown(t, "."; documenter=false);
+        Literate.notebook(joinpath(sources_dir, t), notebooks_dir; documenter=false, execute=false)
+        cp(t,  joinpath(notebooks_dir, t), force=true)
     end
 end
 
