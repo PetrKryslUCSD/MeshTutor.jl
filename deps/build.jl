@@ -3,6 +3,8 @@ using Literate
 sources_dir = joinpath(@__DIR__, "..", "src")
 notebooks_dir = joinpath(@__DIR__, "..", "notebooks")
 
+mkdir(notebooks_dir)
+
 for tut1 in readdir(sources_dir)
     if occursin(r"tutorial.*.jl", tut1)
         # Literate.markdown(tut1, "."; documenter=false);
