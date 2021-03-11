@@ -20,6 +20,7 @@ visualize the VTK files.
 
 ### Executing the tutorials in notebook form with `mybinder`
 
+**Alas, `mybinder.org` is still on 1.5, so that the configuration files are preventing a build to succeed. Please use the method based on including the tutorial file below.**
 The tutorials may be executed on `mybinder.org`. 
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/PetrKryslUCSD/MeshTutor.jl/master)
@@ -36,7 +37,7 @@ interface, checking the box next to the generated file, and downloading it to
 your computer.
 
 
-### Using a local copy of the repository
+### Using a local notebook
 
 Clone the package to your working directory:
 ```
@@ -59,6 +60,13 @@ IJulia.notebook(dir = pwd(), detached = true)
 ```
 head over to the `notebooks` folder, open the tutorial notebook, and evaluate in Jupyter.
 
+### Using direct inclusion of the tutorial files
+
+The tutorials can be executed directly by including them in the Julia prompt.
+First activate and instantiate the repository. Then find the source files for
+the tutorials in `deps` folder. Use for instance `include("tutorial1.jl")`. This
+will execute the entire tutorial. Alternatively, open the tutorial in your
+favorite editor, and execute line by line.
 
 ## News
 
