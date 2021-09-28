@@ -8,8 +8,7 @@ Bundle of tutorials for the mesh-management library, [`MeshSteward`](https://git
 
 ### Visualization
 
-The tutorial will produce files for mesh visualization in the[Paraview]
-(https://www.paraview.org/) format (VTK). One can display this information by
+The tutorial will produce files for mesh visualization in the [Paraview](https://www.paraview.org/) format (VTK). One can display this information by
 loading the file with `paraview.exe`. When the tutorial is executed in
 `mybinder.org`, the graphics file needs to be downloaded to your desktop, and
 then visualized locally. Executing the notebooks locally may start
