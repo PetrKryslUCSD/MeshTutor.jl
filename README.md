@@ -13,7 +13,7 @@ loading the file with `paraview.exe`. When the tutorial is executed in
 `mybinder.org`, the graphics file needs to be downloaded to your desktop, and
 then visualized locally. Executing the notebooks locally may start
 `paraview.exe` automatically, *provided the executable is somewhere in the
-path*. Otherwise they will be a harmless error: failure to start the
+path*. Otherwise there will be a harmless error: failure to start the
 visualization program. Start then a program of your choice manually to
 visualize the VTK files.
 
